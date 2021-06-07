@@ -5,17 +5,19 @@ require('dotenv').config();
 
 const ociAuth = new ociCommon.ConfigFileAuthenticationDetailsProvider();
 
-const osClient = new oci.objectstorage.ObjectStorageClient(ociAuth);
+const osClient = new oci.objectstorage.ObjectStorageClient({authenticationDetailsProvider:ociAuth});
 
+console.log("node-oci-automation program initialized...");
 
 (async () => {
     try {
         console.log("Getting OCI OS Namespace...");
         const request = {};
-        const nsResponse = await ociClient.getNamespace(request);
+        const nsResponse = await osClient.getNamespace(request);
         const namespace = nsResponse.value;
         console.log('OCI OS Namespace:', namespace);
 
+        /*
         const bucketName = 'oci_bucket';
 
         let today = new Date();
@@ -35,7 +37,7 @@ const osClient = new oci.objectstorage.ObjectStorageClient(ociAuth);
             httpResponseContentEncoding: null
         };
 
-        const getObjectResponse = await ociClient.getObject(getObjectRequest);
+        const getObjectResponse = await osClient.getObject(getObjectRequest);
         console.log("Get Object executed...");
         console.log("Object Data:", getObjectResponse);
 
@@ -45,6 +47,7 @@ const osClient = new oci.objectstorage.ObjectStorageClient(ociAuth);
         // TODO: Parse Object Storage Response for signals
         console.log("Deserializing Object Response...");
         console.log(getObjectResponse.value);
+        */
 
     } catch (e) {
         console.log("Error:", e);
