@@ -1,0 +1,30 @@
+{
+  "name": "oci-nodejs-automation",
+  "version": "1.0.0",
+  "description": "Node.js + OCI SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobalo/node-oci-automation.git"
+  },
+  "keywords": [
+    "node",
+    "oci",
+    "cloud",
+    "automation"
+  ],
+  "author": "Tobalo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tobalo/node-oci-automation/issues"
+  },
+  "homepage": "https://github.com/tobalo/node-oci-automation#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "oci-common": "^1.20.1",
+    "oci-sdk": "^1.20.1"
+  }
+}
