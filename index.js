@@ -9,7 +9,7 @@ const osClient = new oci.objectstorage.ObjectStorageClient({authenticationDetail
 
 console.log("node-oci-automation program initialized...");
 
-(async () => {
+async function getObject(osClient, bktName, objName) {
     try {
         console.log("Getting OCI OS Namespace...");
         const request = {};
@@ -17,8 +17,8 @@ console.log("node-oci-automation program initialized...");
         const namespace = nsResponse.value;
         console.log('OCI OS Namespace:', namespace);
 
-        /*
-        const bucketName = 'oci_bucket';
+        
+        const bucketName = bktName;
 
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
@@ -27,12 +27,12 @@ console.log("node-oci-automation program initialized...");
         today = yyyy + '-' + mm + '-' + '06';
         console.log('Date time:', today);
 
-        const objectName = 'OBJECT_NAME';
-        console.log('Object Name:', objectName);
+        const objectName = objName;
+        console.log('Object Name:', objName);
 
         const getObjectRequest = {
-            objectName: objectName,
-            bucketName: bucketName,
+            objectName: objName,
+            bucketName: bktName,
             namespaceName: namespace,
             httpResponseContentEncoding: null
         };
@@ -52,4 +52,4 @@ console.log("node-oci-automation program initialized...");
     } catch (e) {
         console.log("Error:", e);
     }
-})();
+};
